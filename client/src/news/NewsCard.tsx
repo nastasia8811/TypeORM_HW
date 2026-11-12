@@ -21,7 +21,7 @@ export function NewsCard({ post }: { post: NewsPost }) {
           {date}
         </time>
       )}
-
+      {post.author && <span className={styles.author}>{post.author.email}</span>}
       <h3 className={styles.title}>
         <Link
           to={`/news/${post.id}`}

@@ -5,6 +5,7 @@ export interface NewsPost {
   createDate?: string
   genre: string
   isPrivate: boolean
+  author?: { id: number; email: string }
 }
 
 export interface NewsInput {

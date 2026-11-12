@@ -27,6 +27,11 @@
   color: var(--muted);
 }
 
+.author {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
 .title {
   font-size: 1.5rem;
 }
