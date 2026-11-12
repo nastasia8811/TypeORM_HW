@@ -1,0 +1,130 @@
+[
+  {
+    "id": 1,
+    "title": "У зоопарку Чернігова лисичка народила лисеня",
+    "text": "В Чернігівському зоопарку сталася чудова подія! Лисичка на ім'я Руда народила чудове лисенятко! Тож поспішайте навідатись та подивитись на це миле створіння! Працівники зоопарку кажуть, що малюк почувається добре, а мама дуже дбайливо за ним доглядає.",
+    "createDate": "2026-10-19T13:09:15.712Z"
+  },
+  {
+    "id": 2,
+    "title": "У Львові відкрили нову велосипедну доріжку",
+    "text": "Вздовж набережної з’явилася велодоріжка завдовжки понад чотири кілометри. Вона з’єднала центр міста з найбільшим парком, а на маршруті встановили станції для підкачки коліс і невеликі майданчики для відпочинку.",
+    "createDate": "2026-10-19T13:09:51.391Z"
+  },
+  {
+    "id": 3,
+    "title": "Новина 1",
+    "text": "Новина 1 Новина 1 Новина 1 Новина 1",
+    "createDate": "2026-10-22T19:06:22.357Z"
+  },
+  {
+    "id": 4,
+    "title": "Новина 2",
+    "text": "Новина 2 Новина 2 Новина 2",
+    "createDate": "2026-10-22T19:08:38.758Z"
+  },
+  {
+    "id": 5,
+    "title": "Новина 3",
+    "text": "Новина 3 Новина 3 Новина 3 Новина 3",
+    "createDate": "2026-10-22T19:08:51.905Z"
+  },
+  {
+    "id": 6,
+    "title": "Новина 4",
+    "text": "Новина 4 Новина 4 Новина 4",
+    "createDate": "2026-10-22T19:09:04.889Z"
+  },
+  {
+    "id": 7,
+    "title": "Новина 5",
+    "text": "Новина 5 Новина 5 Новина 5 Новина 5",
+    "createDate": "2026-10-22T19:09:19.291Z"
+  },
+  {
+    "id": 8,
+    "title": "Новина 6",
+    "text": "Новина 6 Новина 6",
+    "createDate": "2026-10-22T19:09:51.022Z"
+  },
+  {
+    "id": 9,
+    "title": "Новина 7",
+    "text": "Новина 7 Новина 7 Новина 7",
+    "createDate": "2026-10-22T19:10:04.390Z"
+  },
+  {
+    "id": 10,
+    "title": "Новина 8",
+    "text": "Новина 8 Новина 8",
+    "createDate": "2026-10-22T19:10:15.972Z"
+  },
+  {
+    "id": 11,
+    "title": "Новина 9",
+    "text": "Новина 9 Новина 9",
+    "createDate": "2026-10-22T19:10:29.291Z"
+  },
+  {
+    "id": 12,
+    "title": "Новина 254",
+    "text": "Новина 10 Новина 10 Новина 10 Новина 10",
+    "createDate": "2026-10-22T19:10:40.706Z"
+  },
+  {
+    "id": 14,
+    "title": "Test",
+    "text": "Middleware functions are functions that have access to the request object (req), the response object (res), and the next function in the application’s request-response cycle.",
+    "genre": "Sport",
+    "isPrivate": false,
+    "createDate": "2026-10-24T14:01:28.532Z"
+  },
+  {
+    "id": 15,
+    "title": "Test",
+    "text": "Hello",
+    "genre": "Sport",
+    "isPrivate": false,
+    "createDate": "2026-10-24T14:06:21.021Z"
+  },
+  {
+    "id": 16,
+    "title": "fgfgfgff",
+    "text": "fgfgfgfgfffgfgffgfg",
+    "genre": "Other",
+    "isPrivate": false,
+    "createDate": "2026-10-24T14:26:03.128Z"
+  },
+  {
+    "id": 17,
+    "title": "Новина 254hj",
+    "text": "ryryrururiririiriririr",
+    "genre": "Other",
+    "isPrivate": false,
+    "createDate": "2026-10-24T14:27:17.434Z"
+  },
+  {
+    "id": 18,
+    "title": "Test",
+    "text": "Hello",
+    "genre": "Sport",
+    "isPrivate": false,
+    "createDate": "2026-10-28T12:34:54.296Z"
+  },
+  {
+    "id": 19,
+    "title": "New post",
+    "text": "Post by new scenario",
+    "genre": "Sport",
+    "isPrivate": false,
+    "createDate": "2026-10-28T21:56:29.086Z"
+  },
+  {
+    "id": 20,
+    "title": "New post",
+    "text": "Post by new scenario",
+    "genre": "Sport",
+    "isPrivate": false,
+    "createDate": "2026-10-28T22:02:12.007Z"
+  }
+]
