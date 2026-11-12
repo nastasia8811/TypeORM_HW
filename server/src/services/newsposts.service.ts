@@ -2,6 +2,7 @@ import { NewspostsRepository } from '../repositories/newsposts.repository.ts'
 import type { CreateNewspostBody, UpdateNewspostBody, PaginationParams } from '../types/types.ts'
 import { ValidationError, NewspostsServiceError } from '../error/errorHandler.ts'
 import { ajv, validateCreate, validateUpdate } from '../validation/validation.ts'
+import type { UserSchema } from '../interfaces/interfaces.ts'
 
 export class NewspostsService {
   static async getAll(params: PaginationParams) {
@@ -20,12 +21,12 @@ export class NewspostsService {
     }
   }
 
-  static async create(data: CreateNewspostBody) {
+  static async create(data: CreateNewspostBody, author: UserSchema) {
     if (!validateCreate(data)) {
       throw new ValidationError(ajv.errorsText(validateCreate.errors))
     }
     try {
-      return await NewspostsRepository.create(data)
+      return await NewspostsRepository.create(data, author)
     } catch (error) {
       throw new NewspostsServiceError(`create failed: ${(error as Error).message}`)
     }

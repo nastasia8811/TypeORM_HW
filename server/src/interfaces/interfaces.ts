@@ -17,12 +17,4 @@ interface UserSchema {
   createDate: Date
 }
 
-interface Table<T> {
-  getAll(): T[]
-  getById(id: number): T | undefined
-  create(data: Omit<T, 'id' | 'createDate'>): Promise<T>
-  update(id: number, data: Partial<Omit<T, 'id' | 'createDate'>>): Promise<T | null>
-  delete(id: number): Promise<number | null>
-}
-
-export type { Table, NewspostSchema, UserSchema }
+export type { NewspostSchema, UserSchema }

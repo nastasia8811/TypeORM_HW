@@ -19,8 +19,8 @@ passport.use(
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       secretOrKey: JWT_SECRET,
     },
-    (payload, done) => {
-      const user = findUserById(payload.sub)
+    async (payload, done) => {
+      const user = await findUserById(payload.sub)
       return user ? done(null, user) : done(null, false)
     }
   )

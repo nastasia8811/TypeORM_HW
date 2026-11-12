@@ -1,17 +1,17 @@
-import { fileDB } from '../fileDB.ts'
-import type { UserSchema } from '../interfaces/interfaces.ts'
+import { AppDataSource } from '../db/data-source.ts'
+import { User } from '../entities/User.ts'
 
-fileDB.registerSchema('users', {
-  email: String,
-  password: String,
-})
+const users = AppDataSource.getRepository(User)
 
-const users = fileDB.getTable<UserSchema>('users')
+const findUserByEmail = (email: string) =>
+  users.findOne({
+    where: { email },
+    select: { id: true, email: true, password: true, createDate: true },
+  })
 
-const findUserByEmail = (email: string) => users.getAll().find(user => user.email === email)
+const findUserById = (id: number) => users.findOneBy({ id })
 
-const findUserById = (id: number) => users.getById(id)
-
-const createUser = (email: string, password: string) => users.create({ email, password })
+const createUser = (email: string, password: string) =>
+  users.save(users.create({ email, password }))
 
 export { findUserByEmail, findUserById, createUser }

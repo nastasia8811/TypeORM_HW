@@ -5,9 +5,9 @@ import newspostsRouter from './src/routes/newsposts.router.ts'
 import { ErrorHandler } from './src/error/errorHandler.ts'
 import winston from 'winston'
 import { ValidationError } from './src/error/errorHandler.ts'
-
 import passport from 'passport'
 import authRoutes from './src/routes/auth.router.ts'
+import { AppDataSource } from './src/db/data-source.ts'
 
 export const logger = winston.createLogger({
   level: 'info',
@@ -28,14 +28,21 @@ const clientDistPath = path.join(import.meta.dirname, '../client/dist')
 
 app.use(express.json())
 app.use(passport.initialize())
-app.use(authRoutes)
+
+const hiddenFields = ['password', 'confirmPassword']
 
 app.use((req: Request, _res: Response, next: NextFunction) => {
   const hasBody = req.body && Object.keys(req.body).length > 0
-  const body = hasBody ? ` ${JSON.stringify(req.body)}` : ''
+  const safeBody = { ...req.body }
+  for (const field of hiddenFields) {
+    if (field in safeBody) safeBody[field] = '***'
+  }
+  const body = hasBody ? ` ${JSON.stringify(safeBody)}` : ''
   logger.info(`${req.method} ${req.originalUrl}${body}`)
   next()
 })
+
+app.use(authRoutes)
 
 app.get('/health', (_req: Request, res: Response) => res.json({ ok: true }))
 
@@ -74,6 +81,9 @@ app.use((err: Error, _req: Request, res: Response, next: NextFunction) => {
     message: 'Internal Server Error',
   })
 })
+
+await AppDataSource.initialize()
+logger.info('Database connected')
 
 app.listen(config.port, config.host, (): void => {
   logger.info(`Listening on ${config.host}:${config.port}`)

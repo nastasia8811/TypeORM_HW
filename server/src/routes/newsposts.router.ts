@@ -1,4 +1,7 @@
 import { type Response, Router } from 'express'
+import passport from 'passport'
+import type { UserSchema } from '../interfaces/interfaces.ts'
+
 import type {
   CreateNewspostRequest,
   DeleteNewspostRequest,
@@ -22,10 +25,14 @@ router.get('/', async (req: GetNewspostsRequest, res: Response) => {
   return res.json(newsposts)
 })
 
-router.post('/', async (req: CreateNewspostRequest, res: Response) => {
-  const newspost = await NewspostsService.create(req.body)
-  return res.status(201).json(newspost)
-})
+router.post(
+  '/',
+  passport.authenticate('jwt', { session: false }),
+  async (req: CreateNewspostRequest, res: Response) => {
+    const newspost = await NewspostsService.create(req.body, req.user as UserSchema)
+    return res.status(201).json(newspost)
+  }
+)
 
 router.get('/:id', async (req: NewspostByIdRequest, res: Response) => {
   const id = parseInt(req.params.id)

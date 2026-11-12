@@ -24,7 +24,7 @@ router.post('/auth/register', async (req, res) => {
     return
   }
 
-  if (findUserByEmail(email)) {
+  if (await findUserByEmail(email)) {
     res.status(409).json({ message: 'User already exists' })
     return
   }
@@ -33,14 +33,14 @@ router.post('/auth/register', async (req, res) => {
   res.status(201).json({ token: createToken(user) })
 })
 
-router.post('/auth/login', (req, res) => {
+router.post('/auth/login', async (req, res) => {
   if (!validateLogin(req.body)) {
     res.status(400).json({ errors: validateLogin.errors })
     return
   }
 
   const { email, password } = req.body
-  const user = findUserByEmail(email)
+  const user = await findUserByEmail(email)
 
   if (!user || user.password !== hashPassword(password)) {
     res.status(401).json({ message: 'Invalid email or password' })
